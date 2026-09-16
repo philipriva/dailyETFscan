@@ -1,0 +1,32 @@
+name: Run ETF Momentum Scanner
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21 * * 1-5' # 美股收盤後自動執行
+
+jobs:
+  run-scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install playwright yfinance pandas requests
+          playwright install --with-deps chromium
+
+      - name: Run Script
+        run: python main.py
+
+      - name: Upload Artifact CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: ETF-Leaders-CSV
+          path: ETF_Leaders_*.csv
