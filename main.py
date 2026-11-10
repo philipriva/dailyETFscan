@@ -38,6 +38,7 @@ USER_REQUIRED_ETFS = [
     "TLT", "UUP", "VNQ", "VOX", "XAR", "XBI", "XHB", "XHS", "XLB",
     "XLC", "XLE", "XLF", "XLI", "XLK", "XLP", "XLU", "XLY", "XME",
     "XOP", "XPH", "XRT", "XSD",
+    "XITK", "XLRE", "XNTK", "XSW", "XTN",
 ]
 
 # Broader library (kept) + required always merged in
@@ -57,6 +58,7 @@ ETF_LIST_BASE = [
     # previously missing from scan (required)
     "VOX", "EUFN", "KBWB", "BIZD", "AMLP", "ONLN", "IXP", "XLC", "XHS",
     "GRID", "IDRV", "XAR", "REM", "XLK",
+    "XITK", "XLRE", "XNTK", "XSW", "XTN",
 ]
 
 ETF_LIST = sorted(set(ETF_LIST_BASE) | set(USER_REQUIRED_ETFS))
